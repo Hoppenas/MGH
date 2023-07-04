@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
 import { Grid } from "@mui/material";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div className="App">
-      <Grid>Hello</Grid>
-    </div>
+    <Grid>
+      <Header />
+    </Grid>
   );
 }
 
