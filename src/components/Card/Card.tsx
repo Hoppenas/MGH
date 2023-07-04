@@ -8,7 +8,6 @@ export interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ reverse = false }) => {
-  console.log(reverse);
   return (
     <Grid
       container
