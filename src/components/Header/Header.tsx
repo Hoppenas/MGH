@@ -8,35 +8,26 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Grid } from "@mui/material";
 import logo from "../../images/logo.png";
 
-const Header = () => {
+export interface HeaderProps {
+  left?: JSX.Element;
+  center?: JSX.Element;
+  right?: JSX.Element;
+}
+
+const Header: React.FC<HeaderProps> = ({ left, center, right }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#FFF", color: "black" }}>
         <Grid margin="10px">
           <Grid container direction="row">
             <Grid item container xs={4} justifyContent="flex-start">
-              <img src={logo} alt="MGH transport logo" width="150px" />
+              {left}
             </Grid>
             <Grid item container justifyContent="center" xs={4}>
-              <Button color="inherit">aog@mghtranspot.lt</Button>
+              {center}
             </Grid>
             <Grid item container xs={4} justifyContent="flex-end">
-              <Box>
-                <Toolbar>
-                  {/* <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
-                    sx={{ mr: 2 }}
-                  >
-                    <MenuIcon />
-                  </IconButton> */}
-                  <Button color="inherit">About us</Button>
-                  <Button color="inherit">Services</Button>
-                  <Button color="inherit">Contact</Button>
-                </Toolbar>
-              </Box>
+              {right}
             </Grid>
           </Grid>
         </Grid>
