@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState, RefObject, MouseEvent } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-const DropDownMenu = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+export interface DropDownMenuProps {
+  refArr: RefObject<HTMLDivElement>[];
+}
+
+const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+
+  const handleClose = (ref: RefObject<HTMLDivElement>) => {
     setAnchorEl(null);
+    if (anchorEl === null) {
+      ref.current?.scrollIntoView();
+    }
   };
 
   return (
@@ -28,14 +36,14 @@ const DropDownMenu = () => {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={() => handleClose(refArr[0])}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={() => handleClose(refArr[0])}>Profile</MenuItem>
+        <MenuItem onClick={() => handleClose(refArr[1])}>My account</MenuItem>
+        <MenuItem onClick={() => handleClose(refArr[2])}>Logout</MenuItem>
       </Menu>
     </div>
   );

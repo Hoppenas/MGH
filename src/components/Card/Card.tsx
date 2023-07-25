@@ -1,13 +1,14 @@
 import { Box } from "@mui/system";
-import React from "react";
+import React, { LegacyRef, MutableRefObject } from "react";
 import jetImage from "../../images/jet-airbase.jpg";
 import { Grid, Typography } from "@mui/material";
 
 export interface CardProps {
   reverse?: boolean;
+  cardRef: LegacyRef<HTMLDivElement> | undefined;
 }
 
-const Card: React.FC<CardProps> = ({ reverse = false }) => {
+const Card: React.FC<CardProps> = ({ reverse = false, cardRef }) => {
   return (
     <Grid
       container
@@ -15,7 +16,9 @@ const Card: React.FC<CardProps> = ({ reverse = false }) => {
       spacing={1}
       justifyContent="space-around"
       margin="5rem 0"
+      // ref={cardRef}
     >
+      <div ref={cardRef}></div>
       <Grid item container xs={6} alignContent="center">
         <Typography variant="h2" width="100%" textAlign="end" margin="0 5rem">
           Aircraft in a airbase
