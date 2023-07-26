@@ -1,12 +1,7 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { Grid } from "@mui/material";
-import logo from "../../images/logo.png";
 
 export interface HeaderProps {
   left?: JSX.Element;
@@ -17,7 +12,7 @@ export interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ left, center, right }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "#FFF", color: "black" }}>
+      <AppBar position="fixed" style={{ background: "#FFF", color: "black" }}>
         <Grid margin="10px">
           <Grid container direction="row">
             <Grid item container xs={4} justifyContent="flex-start">
