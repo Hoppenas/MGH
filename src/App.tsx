@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense } from "react";
 import "./App.css";
 import { Box, Button, Grid, Toolbar } from "@mui/material";
 import Header from "./components/Header/Header";
@@ -13,27 +13,29 @@ function App() {
   const thirdRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Grid container xs={12} marginTop="95px">
-      <Header
-        left={<img src={logo} alt="MGH transport logo" width="150px" />}
-        center={
-          <Button color="inherit" onClick={() => console.log("email")}>
-            aog@mghtranspot.lt
-          </Button>
-        }
-        right={
-          <Box>
-            <Toolbar>
-              <DropDownMenu refArr={[firstRef, secondRef, thirdRef]} />
-            </Toolbar>
-          </Box>
-        }
-      />
-      <Card cardRef={firstRef} />
-      <Card reverse={true} cardRef={secondRef} />
-      <Card reverse={true} cardRef={thirdRef} />
-      <Footer />
-    </Grid>
+    <Suspense fallback="loading">
+      <Grid container xs={12} marginTop="95px">
+        <Header
+          left={<img src={logo} alt="MGH transport logo" width="150px" />}
+          center={
+            <Button color="inherit" onClick={() => console.log("email")}>
+              aog@mghtranspot.lt
+            </Button>
+          }
+          right={
+            <Box>
+              <Toolbar>
+                <DropDownMenu refArr={[firstRef, secondRef, thirdRef]} />
+              </Toolbar>
+            </Box>
+          }
+        />
+        <Card cardRef={firstRef} />
+        <Card reverse={true} cardRef={secondRef} />
+        <Card cardRef={thirdRef} />
+        <Footer />
+      </Grid>
+    </Suspense>
   );
 }
 

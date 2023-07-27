@@ -3,13 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import { Container, Grid, Link, Typography } from "@mui/material";
 
-export interface FooterProps {
-  left?: JSX.Element;
-  center?: JSX.Element;
-  right?: JSX.Element;
-}
-
-const Footer: React.FC<FooterProps> = ({ left, center, right }) => {
+const Footer: React.FC = () => {
   return (
     <Box
       width="100%"

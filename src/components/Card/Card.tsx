@@ -1,7 +1,7 @@
-import { Box } from "@mui/system";
-import React, { LegacyRef, MutableRefObject } from "react";
+import React, { LegacyRef } from "react";
 import jetImage from "../../images/jet-airbase.jpg";
 import { Grid, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export interface CardProps {
   reverse?: boolean;
@@ -9,6 +9,7 @@ export interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ reverse = false, cardRef }) => {
+  const { t } = useTranslation();
   return (
     <Grid
       container
@@ -19,7 +20,7 @@ const Card: React.FC<CardProps> = ({ reverse = false, cardRef }) => {
     >
       <Grid item container xs={6} alignContent="center">
         <Typography variant="h2" width="100%" textAlign="end" margin="0 5rem">
-          Aircraft in a airbase
+          {t("subject")}
         </Typography>
         <Typography variant="h5" margin="5rem">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
