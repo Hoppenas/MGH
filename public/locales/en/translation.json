@@ -1,3 +1,13 @@
 {
-    "subject": "Aircraft in a airbase2"
+    "subject": "Aircraft in a airbase2",
+    "airfreight": {
+        "subject": "Airfreight",
+        "description": "Welcome to MGH transport, your premier logistics partner for efficient and reliable airfreight services. We understand that in today's globalized marketplace, time is of the essence, and seamless transport of goods is crucial for your business success. With our expertise, cutting-edge technology, and unwavering commitment to customer satisfaction, we ensure that your airfreight shipments reach their destination with speed and precision. Our Range of Airfreight Services:",
+        "services": {
+            "express-airfreight": "Express Airfreight: For those time-sensitive shipments that demand immediate attention, our express airfreight service guarantees the fastest transit times and the highest level of priority. 24/7 contact: aog@mghtransport.lt",
+            "consolidated-airfreight": "Consolidated Airfreight: Looking for a cost-effective option without sacrificing speed? Our consolidated airfreight service combines shipments from multiple customers to optimize capacity and minimize costs.",
+            "specialized-cargo-handling": "Specialized Cargo Handling: We have the expertise and experience to handle specialized cargo, such as perishables, hazardous materials, oversized goods, and valuable commodities. Our team ensures compliance with all regulations and industry standards.",
+            "door-to-door": "Door-to-Door Solutions: From pickup to final delivery, our door-to-door airfreight service streamlines the entire process, saving you time and effort while providing end-to-end visibility."
+        }
+    }
 }

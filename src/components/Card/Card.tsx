@@ -1,15 +1,20 @@
 import React, { LegacyRef } from "react";
 import jetImage from "../../images/jet-airbase.jpg";
 import { Grid, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 
 export interface CardProps {
   reverse?: boolean;
   cardRef: LegacyRef<HTMLDivElement> | undefined;
+  subject?: string;
+  description?: string;
 }
 
-const Card: React.FC<CardProps> = ({ reverse = false, cardRef }) => {
-  const { t } = useTranslation();
+const Card: React.FC<CardProps> = ({
+  reverse = false,
+  cardRef,
+  subject,
+  description,
+}) => {
   return (
     <Grid
       container
@@ -20,26 +25,10 @@ const Card: React.FC<CardProps> = ({ reverse = false, cardRef }) => {
     >
       <Grid item container xs={6} alignContent="center">
         <Typography variant="h2" width="100%" textAlign="end" margin="0 5rem">
-          {t("subject")}
+          {subject}
         </Typography>
         <Typography variant="h5" margin="5rem">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-          cupiditate, suscipit velit distinctio amet quam magnam atque assumenda
-          ipsa. Impedit deserunt incidunt maxime quo hic consequuntur autem
-          laudantium. A, enim? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Omnis cupiditate, suscipit velit distinctio amet
-          quam magnam atque assumenda ipsa. Impedit deserunt incidunt maxime quo
-          hic consequuntur autem laudantium. A, enim? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Omnis cupiditate, suscipit velit
-          distinctio amet quam magnam atque assumenda ipsa. Impedit deserunt
-          incidunt maxime quo hic consequuntur autem laudantium. A, enim? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Omnis cupiditate,
-          suscipit velit distinctio amet quam magnam atque assumenda ipsa.
-          Impedit deserunt incidunt maxime quo hic consequuntur autem
-          laudantium. A, enim? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Omnis cupiditate, suscipit velit distinctio amet
-          quam magnam atque assumenda ipsa. Impedit deserunt incidunt maxime quo
-          hic consequuntur autem laudantium. A, enim?
+          {description}
         </Typography>
       </Grid>
       <Grid item xs={6}>

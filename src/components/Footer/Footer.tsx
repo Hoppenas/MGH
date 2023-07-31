@@ -1,7 +1,6 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import { Container, Grid, Link, Typography } from "@mui/material";
+import { Container, Link, Typography } from "@mui/material";
 
 const Footer: React.FC = () => {
   return (
