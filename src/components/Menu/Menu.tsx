@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 export interface DropDownMenuProps {
-  refArr: RefObject<HTMLDivElement>[];
+  refArr: { ref: RefObject<HTMLDivElement>; subject: string }[];
 }
 
 const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
@@ -37,14 +37,16 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={() => handleClose(refArr[0])}
+        onClose={() => handleClose(refArr[0].ref)}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => handleClose(refArr[0])}>Profile</MenuItem>
-        <MenuItem onClick={() => handleClose(refArr[1])}>My account</MenuItem>
-        <MenuItem onClick={() => handleClose(refArr[2])}>Logout</MenuItem>
+        {refArr.map((item) => (
+          <MenuItem onClick={() => handleClose(item.ref)} key={item.subject}>
+            {item.subject}
+          </MenuItem>
+        ))}
       </Menu>
     </div>
   );
