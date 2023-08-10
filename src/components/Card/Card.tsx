@@ -1,5 +1,4 @@
 import React, { LegacyRef } from "react";
-import jetImage from "../../images/jet-airbase.jpg";
 import { Grid, Typography } from "@mui/material";
 
 export interface CardProps {
@@ -18,23 +17,24 @@ const Card: React.FC<CardProps> = ({
   image,
 }) => {
   return (
-    <Grid
-      container
-      direction={reverse ? "row" : "row-reverse"}
-      spacing={1}
-      justifyContent="space-around"
-      margin="5rem 0"
-    >
-      <Grid item container xs={6} alignContent="center">
-        <Typography variant="h2" width="100%" textAlign="end" margin="0 5rem">
-          {subject}
-        </Typography>
-        {description}
-      </Grid>
-      <Grid item xs={6}>
-        <img src={image} alt="jet airbase" loading="lazy" width="100%" />
-      </Grid>
+    <Grid textAlign="justify" padding="90px 10px 0">
       <div ref={cardRef} />
+      <Typography variant="h2" width="100%" textAlign="center" margin="2rem 0">
+        {subject}
+      </Typography>
+      <img
+        src={image}
+        alt="jet airbase"
+        loading="lazy"
+        width="40%"
+        style={{
+          float: reverse ? "left" : "right",
+          margin: reverse ? "0 1rem 0 0" : "0 0 0 1rem",
+          borderRadius: "10px",
+          minWidth: "400px",
+        }}
+      />
+      {description}
     </Grid>
   );
 };

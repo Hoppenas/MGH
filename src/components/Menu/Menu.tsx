@@ -22,7 +22,10 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
     setAnchorEl(null);
     //TODO: move to useEffect???
     setTimeout(() => {
-      ref.current?.scrollIntoView({ behavior: "smooth" });
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }, 100);
   };
 
