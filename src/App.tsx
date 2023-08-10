@@ -14,6 +14,15 @@ import Roadfreight from "./components/Services/Roadfreight";
 import DangerousGoods from "./components/Services/DangerousGoods";
 import TimeCritical from "./components/Services/TimeCritical";
 import Oceanfreight from "./components/Services/Oceanfreight";
+import jetImage from "./images/jet-airbase.jpg";
+import aboutUs from "./images/aboutUs.jpg";
+import blackJet from "./images/blackJet.jpg";
+import containers from "./images/containers.jpg";
+import diplomaticPouch from "./images/diplomaticPouch.jpg";
+import engine from "./images/engine.jpg";
+import fragile from "./images/fragile.jpg";
+import helicopter from "./images/helicopter.jpg";
+import truck from "./images/truck.jpg";
 
 function App() {
   const airfreightRef = useRef<HTMLDivElement>(null);
@@ -30,36 +39,50 @@ function App() {
     {
       ref: airfreightRef,
       subject: t("airfreight.subject"),
+      description: <Airfreight />,
+      image: blackJet,
     },
     {
       ref: aerospaceRef,
       subject: t("aerospace.subject"),
+      description: <Aerospace />,
+      image: engine,
     },
     {
       ref: diplomaticCargoRef,
       subject: t("diplomatic-cargo.subject"),
+      description: <DiplomaticCargo />,
+      image: diplomaticPouch,
     },
     {
       ref: roadfreightRef,
       subject: t("roadfreight.subject"),
+      description: <Roadfreight />,
+      image: truck,
     },
     {
       ref: dangerousGoodsRef,
       subject: t("dangerous-goods.subject"),
+      description: <DangerousGoods />,
+      image: helicopter,
     },
     {
       ref: timeCriticalRef,
       subject: t("time-critical.subject"),
+      description: <TimeCritical />,
+      image: fragile,
     },
     {
       ref: oceanFreightRef,
       subject: t("oceanfreight.subject"),
+      description: <Oceanfreight />,
+      image: containers,
     },
   ];
 
   return (
     <Suspense fallback="loading">
-      <Grid container xs={12} marginTop="95px">
+      <Grid container margin="95px auto 0" maxWidth="1366px">
         <Header
           left={<img src={logo} alt="MGH transport logo" width="150px" />}
           center={
@@ -75,42 +98,16 @@ function App() {
             </Box>
           }
         />
-        <Card
-          cardRef={airfreightRef}
-          subject={t("airfreight.subject")}
-          description={<Airfreight />}
-        />
-        <Card
-          reverse={true}
-          cardRef={aerospaceRef}
-          subject={t("aerospace.subject")}
-          description={<Aerospace />}
-        />
-        <Card
-          cardRef={diplomaticCargoRef}
-          subject={t("diplomatic-cargo.subject")}
-          description={<DiplomaticCargo />}
-        />
-        <Card
-          cardRef={roadfreightRef}
-          subject={t("roadfreight.subject")}
-          description={<Roadfreight />}
-        />
-        <Card
-          cardRef={dangerousGoodsRef}
-          subject={t("dangerous-goods.subject")}
-          description={<DangerousGoods />}
-        />
-        <Card
-          cardRef={timeCriticalRef}
-          subject={t("time-critical.subject")}
-          description={<TimeCritical />}
-        />
-        <Card
-          cardRef={oceanFreightRef}
-          subject={t("oceanfreight.subject")}
-          description={<Oceanfreight />}
-        />
+        {refArr.map((card, id) => (
+          <Card
+            key={card.subject}
+            cardRef={card.ref}
+            subject={card.subject}
+            description={card.description}
+            reverse={id % 2 === 0}
+            image={card.image}
+          />
+        ))}
         <Footer />
       </Grid>
     </Suspense>

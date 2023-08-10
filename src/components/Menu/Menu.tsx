@@ -4,7 +4,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 export interface DropDownMenuProps {
-  refArr: { ref: RefObject<HTMLDivElement>; subject: string }[];
+  refArr: {
+    ref: RefObject<HTMLDivElement>;
+    subject: string;
+    description?: React.ReactNode;
+  }[];
 }
 
 const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
