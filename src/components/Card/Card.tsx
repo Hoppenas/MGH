@@ -6,7 +6,7 @@ export interface CardProps {
   cardRef: LegacyRef<HTMLDivElement> | undefined;
   subject?: string;
   description?: React.ReactNode;
-  image: string;
+  image?: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -17,23 +17,25 @@ const Card: React.FC<CardProps> = ({
   image,
 }) => {
   return (
-    <Grid textAlign="justify" padding="90px 10px 0">
-      <div ref={cardRef} />
+    <Grid textAlign={image ? "justify" : "center"} xs={12} padding="0 10px">
       <Typography variant="h2" width="100%" textAlign="center" margin="2rem 0">
         {subject}
       </Typography>
-      <img
-        src={image}
-        alt="jet airbase"
-        loading="lazy"
-        width="40%"
-        style={{
-          float: reverse ? "left" : "right",
-          margin: reverse ? "0 1rem 0 0" : "0 0 0 1rem",
-          borderRadius: "10px",
-          minWidth: "400px",
-        }}
-      />
+      <div ref={cardRef} />
+      {image && (
+        <img
+          src={image}
+          alt="jet airbase"
+          loading="lazy"
+          width="40%"
+          style={{
+            float: reverse ? "left" : "right",
+            margin: reverse ? "0 1rem 0 0" : "0 0 0 1rem",
+            borderRadius: "10px",
+            minWidth: "400px",
+          }}
+        />
+      )}
       {description}
     </Grid>
   );

@@ -7,7 +7,7 @@ export interface TextProps {
 
 const Text: React.FC<TextProps> = ({ children }: TextProps) => {
   return (
-    <Typography variant="h5" margin="1rem 0">
+    <Typography variant="h6" margin="1rem 0">
       {children}
     </Typography>
   );

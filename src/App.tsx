@@ -14,7 +14,6 @@ import Roadfreight from "./components/Services/Roadfreight";
 import DangerousGoods from "./components/Services/DangerousGoods";
 import TimeCritical from "./components/Services/TimeCritical";
 import Oceanfreight from "./components/Services/Oceanfreight";
-import jetImage from "./images/jet-airbase.jpg";
 import aboutUs from "./images/aboutUs.jpg";
 import blackJet from "./images/blackJet.jpg";
 import containers from "./images/containers.jpg";
@@ -23,8 +22,12 @@ import engine from "./images/engine.jpg";
 import fragile from "./images/fragile.jpg";
 import helicopter from "./images/helicopter.jpg";
 import truck from "./images/truck.jpg";
+import AboutUs from "./components/Services/AboutUs";
+import ContactUs from "./components/Services/ContactUs";
+import { handleScrollTo } from "./utils/utils";
 
 function App() {
+  const aboutUsRef = useRef<HTMLDivElement>(null);
   const airfreightRef = useRef<HTMLDivElement>(null);
   const aerospaceRef = useRef<HTMLDivElement>(null);
   const diplomaticCargoRef = useRef<HTMLDivElement>(null);
@@ -32,6 +35,7 @@ function App() {
   const dangerousGoodsRef = useRef<HTMLDivElement>(null);
   const timeCriticalRef = useRef<HTMLDivElement>(null);
   const oceanFreightRef = useRef<HTMLDivElement>(null);
+  const contactUsRef = useRef<HTMLDivElement>(null);
 
   const { t } = useTranslation();
 
@@ -87,16 +91,35 @@ function App() {
           left={<img src={logo} alt="MGH transport logo" width="150px" />}
           center={
             <Button color="inherit" onClick={() => console.log("email")}>
-              aog@mghtranspot.lt
+              {t("aog-email")}
             </Button>
           }
           right={
             <Box>
               <Toolbar>
+                <Button
+                  color="inherit"
+                  onClick={() => handleScrollTo(aboutUsRef)}
+                >
+                  {t("about-us.subject")}
+                </Button>
                 <DropDownMenu refArr={refArr} />
+                <Button
+                  color="inherit"
+                  onClick={() => handleScrollTo(contactUsRef)}
+                >
+                  {t("contact-us.subject")}
+                </Button>
               </Toolbar>
             </Box>
           }
+        />
+        <Card
+          cardRef={aboutUsRef}
+          subject={t("about-us.subject")}
+          description={<AboutUs />}
+          reverse
+          image={aboutUs}
         />
         {refArr.map((card, id) => (
           <Card
@@ -104,10 +127,15 @@ function App() {
             cardRef={card.ref}
             subject={card.subject}
             description={card.description}
-            reverse={id % 2 === 0}
+            reverse={id % 2 === 1}
             image={card.image}
           />
         ))}
+        <Card
+          cardRef={contactUsRef}
+          subject={t("contact-us.subject")}
+          description={<ContactUs />}
+        />
         <Footer />
       </Grid>
     </Suspense>

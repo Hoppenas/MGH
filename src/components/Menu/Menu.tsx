@@ -2,6 +2,8 @@ import React, { useState, RefObject, MouseEvent } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { handleScrollTo } from "../../utils/utils";
+import { useTranslation } from "react-i18next";
 
 export interface DropDownMenuProps {
   refArr: {
@@ -14,6 +16,8 @@ export interface DropDownMenuProps {
 const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const { t } = useTranslation();
+
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,24 +25,20 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
   const handleClose = (ref: RefObject<HTMLDivElement>) => {
     setAnchorEl(null);
     //TODO: move to useEffect???
-    setTimeout(() => {
-      ref.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }, 100);
+    setTimeout(() => handleScrollTo(ref), 100);
   };
 
   return (
     <div>
       <Button
+        color="inherit"
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Services
+        {t("services")}
       </Button>
       <Menu
         id="basic-menu"
