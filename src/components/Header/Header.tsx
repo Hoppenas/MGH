@@ -12,7 +12,10 @@ export interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ left, center, right }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" style={{ background: "#FFF", color: "black" }}>
+      <AppBar
+        position="fixed"
+        style={{ background: "rgba(255, 255, 255, 0.9)", color: "black" }}
+      >
         <Grid margin="10px">
           <Grid container direction="row">
             <Grid item container xs={4} justifyContent="flex-start">

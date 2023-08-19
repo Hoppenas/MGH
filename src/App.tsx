@@ -1,6 +1,6 @@
 import React, { useRef, Suspense } from "react";
 import "./App.css";
-import { Box, Button, Grid, Toolbar } from "@mui/material";
+import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
 import Header from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import logo from "./images/logo.png";
@@ -25,6 +25,7 @@ import truck from "./images/truck.jpg";
 import AboutUs from "./components/Services/AboutUs";
 import ContactUs from "./components/Services/ContactUs";
 import { handleScrollTo } from "./utils/utils";
+import useWindowSize from "./hooks/useWindowSize";
 
 function App() {
   const aboutUsRef = useRef<HTMLDivElement>(null);
@@ -36,6 +37,8 @@ function App() {
   const timeCriticalRef = useRef<HTMLDivElement>(null);
   const oceanFreightRef = useRef<HTMLDivElement>(null);
   const contactUsRef = useRef<HTMLDivElement>(null);
+
+  const width = useWindowSize();
 
   const { t } = useTranslation();
 
@@ -90,12 +93,12 @@ function App() {
         <Header
           left={<img src={logo} alt="MGH transport logo" width="150px" />}
           center={
-            <Button color="inherit" onClick={() => console.log("email")}>
+            <Typography alignSelf="center" color="red">
               {t("aog-email")}
-            </Button>
+            </Typography>
           }
           right={
-            <Box>
+            <Box minWidth="340px">
               <Toolbar>
                 <Button
                   color="inherit"

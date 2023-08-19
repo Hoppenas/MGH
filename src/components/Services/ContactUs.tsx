@@ -7,7 +7,6 @@ const ContactUs = () => {
   const { t } = useTranslation();
   return (
     <Grid>
-      <Text>{t("contact-us.description")}</Text>
       <Text>{t("contact-us.info.line1")}</Text>
       <Text>{t("contact-us.info.line2")}</Text>
       <Text>{t("contact-us.info.line3")}</Text>
