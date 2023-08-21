@@ -18,13 +18,13 @@ const Header: React.FC<HeaderProps> = ({ left, center, right }) => {
       >
         <Grid margin="10px">
           <Grid container direction="row">
-            <Grid item container xs={4} justifyContent="flex-start">
+            <Grid item container justifyContent="flex-start" xs>
               {left}
             </Grid>
-            <Grid item container justifyContent="center" xs={4}>
+            <Grid item container justifyContent="center" xs>
               {center}
             </Grid>
-            <Grid item container xs={4} justifyContent="flex-end">
+            <Grid item container justifyContent="flex-end" xs>
               {right}
             </Grid>
           </Grid>

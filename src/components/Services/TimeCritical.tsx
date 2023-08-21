@@ -6,7 +6,7 @@ import Text from "../Text/Text";
 const TimeCritical = () => {
   const { t } = useTranslation();
   return (
-    <Grid>
+    <Grid minWidth="400px">
       <Text>{t("time-critical.description")}</Text>
       <Text>{t("time-critical.services.service1")}</Text>
     </Grid>

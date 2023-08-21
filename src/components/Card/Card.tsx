@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
       {image && (
         <img
           src={image}
-          alt="jet airbase"
+          alt="Service"
           loading="lazy"
           width="40%"
           style={{

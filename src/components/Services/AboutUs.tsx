@@ -6,7 +6,7 @@ import Text from "../Text/Text";
 const AboutUs = () => {
   const { t } = useTranslation();
   return (
-    <Grid>
+    <Grid minWidth="400px">
       <Text>{t("about-us.description")}</Text>
       <Text>{t("about-us.services.service1")}</Text>
       <Text>{t("about-us.services.service2")}</Text>

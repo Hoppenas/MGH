@@ -6,7 +6,7 @@ import Text from "../Text/Text";
 const Aerospace = () => {
   const { t } = useTranslation();
   return (
-    <Grid>
+    <Grid minWidth="400px">
       <Text>{t("aerospace.description")}</Text>
     </Grid>
   );
