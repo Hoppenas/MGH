@@ -2,6 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import { Grid } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export interface HeaderProps {
   left?: JSX.Element;
@@ -26,6 +27,7 @@ const Header: React.FC<HeaderProps> = ({ left, center, right }) => {
             </Grid>
             <Grid item container justifyContent="flex-end" xs>
               {right}
+              {/* <MenuIcon /> */}
             </Grid>
           </Grid>
         </Grid>
