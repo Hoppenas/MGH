@@ -1,6 +1,5 @@
 import React, { useRef, Suspense } from "react";
-import "./App.css";
-import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
+import { Button, Grid, Toolbar } from "@mui/material";
 import Header from "./components/Header/Header";
 import Card from "./components/Card/Card";
 import logo from "./images/logo.png";
@@ -39,6 +38,7 @@ function App() {
   const contactUsRef = useRef<HTMLDivElement>(null);
 
   const width = useWindowSize();
+  const showSmallScreenmenu = width !== undefined && width < 574;
 
   const { t } = useTranslation();
 
@@ -87,43 +87,71 @@ function App() {
     },
   ];
 
+  if (showSmallScreenmenu) {
+    refArr.splice(0, 0, {
+      ref: aboutUsRef,
+      subject: t("about-us.subject"),
+      description: <AboutUs />,
+      image: aboutUs,
+    });
+    refArr.push({
+      ref: contactUsRef,
+      subject: t("contact-us.subject"),
+      description: <ContactUs />,
+      image: "",
+    });
+  }
+
   return (
     <Suspense fallback="loading">
       <Grid container margin="95px auto 0" maxWidth="1366px">
         <Header
           left={<img src={logo} alt="MGH transport logo" width="150px" />}
-          center={
-            <Typography alignSelf="center" color="red">
-              {t("aog-email")}
-            </Typography>
-          }
           right={
-            <Box minWidth="340px">
-              <Toolbar>
+            <Toolbar>
+              {!showSmallScreenmenu && (
                 <Button
+                  style={{ whiteSpace: "nowrap" }}
                   color="inherit"
                   onClick={() => handleScrollTo(aboutUsRef)}
                 >
                   {t("about-us.subject")}
                 </Button>
-                <DropDownMenu refArr={refArr} />
+              )}
+              <DropDownMenu
+                refArr={refArr}
+                showSmallScreenmenu={showSmallScreenmenu}
+              />
+              {!showSmallScreenmenu && (
                 <Button
+                  style={{ whiteSpace: "nowrap" }}
+                  color="inherit"
+                  onClick={() => handleScrollTo(aerospaceRef)}
+                >
+                  {t("aog-247")}
+                </Button>
+              )}
+              {!showSmallScreenmenu && (
+                <Button
+                  style={{ whiteSpace: "nowrap" }}
                   color="inherit"
                   onClick={() => handleScrollTo(contactUsRef)}
                 >
                   {t("contact-us.subject")}
                 </Button>
-              </Toolbar>
-            </Box>
+              )}
+            </Toolbar>
           }
         />
-        <Card
-          cardRef={aboutUsRef}
-          subject={t("about-us.subject")}
-          description={<AboutUs />}
-          reverse
-          image={aboutUs}
-        />
+        {!showSmallScreenmenu && (
+          <Card
+            cardRef={aboutUsRef}
+            subject={t("about-us.subject")}
+            description={<AboutUs />}
+            reverse
+            image={aboutUs}
+          />
+        )}
         {refArr.map((card, id) => (
           <Card
             key={card.subject}
@@ -134,11 +162,13 @@ function App() {
             image={card.image}
           />
         ))}
-        <Card
-          cardRef={contactUsRef}
-          subject={t("contact-us.subject")}
-          description={<ContactUs />}
-        />
+        {!showSmallScreenmenu && (
+          <Card
+            cardRef={contactUsRef}
+            subject={t("contact-us.subject")}
+            description={<ContactUs />}
+          />
+        )}
         <Footer />
       </Grid>
     </Suspense>

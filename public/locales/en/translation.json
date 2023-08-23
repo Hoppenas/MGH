@@ -2,6 +2,7 @@
   "subject": "Aircraft in a airbase2",
   "services": "Services",
   "aog-email": "aog@mghtransport.lt",
+  "aog-247": "AOG 24/7",
   "airfreight": {
     "subject": "Airfreight",
     "description": "Welcome to MGH transport, your premier logistics partner for efficient and reliable airfreight services. We understand that in today's globalized marketplace, time is of the essence, and seamless transport of goods is crucial for your business success. With our expertise, cutting-edge technology, and unwavering commitment to customer satisfaction, we ensure that your airfreight shipments reach their destination with speed and precision. Our Range of Airfreight Services:",
@@ -14,7 +15,10 @@
   },
   "aerospace": {
     "subject": "Aerospace - AOG",
-    "description": "MGH Transport is your trusted partner for 24/7 time-critical airfreight deliveries and Aerospace AOG (Aircraft on Ground) services. With our expertise and global network, we specialize in providing swift and reliable transportation for urgent shipments, ensuring minimal downtime for the aerospace industry. Trust us to handle your time-sensitive goods and critical aircraft components with precision and care, guaranteeing their safe and timely delivery. Contact us now to experience our unwavering commitment to speed, reliability, and seamless logistics solutions, available round the clock for all your aerospace AOG needs."
+    "description": "MGH Transport is your trusted partner for 24/7 time-critical airfreight deliveries and Aerospace AOG (Aircraft on Ground) services. With our expertise and global network, we specialize in providing swift and reliable transportation for urgent shipments, ensuring minimal downtime for the aerospace industry. Trust us to handle your time-sensitive goods and critical aircraft components with precision and care, guaranteeing their safe and timely delivery. Contact us now to experience our unwavering commitment to speed, reliability, and seamless logistics solutions, available round the clock for all your aerospace AOG needs.",
+    "contact-us": "Contact us at:",
+    "aog-email": "aog@mghtransport.lt",
+    "get-247-service": " and get the 24/7 service for your A.O.G. shipment."
   },
   "diplomatic-cargo": {
     "subject": "Diplomatic cargo",

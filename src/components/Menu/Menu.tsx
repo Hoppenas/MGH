@@ -4,6 +4,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { handleScrollTo } from "../../utils/utils";
 import { useTranslation } from "react-i18next";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Grid } from "@mui/material";
 
 export interface DropDownMenuProps {
   refArr: {
@@ -11,9 +13,13 @@ export interface DropDownMenuProps {
     subject: string;
     description?: React.ReactNode;
   }[];
+  showSmallScreenmenu: boolean;
 }
 
-const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
+const DropDownMenu: React.FC<DropDownMenuProps> = ({
+  refArr,
+  showSmallScreenmenu,
+}) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const { t } = useTranslation();
@@ -29,7 +35,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
   };
 
   return (
-    <div>
+    <Grid container justifyContent="flex-end" width="fit-content">
       <Button
         color="inherit"
         id="basic-button"
@@ -38,7 +44,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        {t("services")}
+        {!showSmallScreenmenu ? t("services") : <MenuIcon />}
       </Button>
       <Menu
         id="basic-menu"
@@ -55,7 +61,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ refArr }) => {
           </MenuItem>
         ))}
       </Menu>
-    </div>
+    </Grid>
   );
 };
 

@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { ReactNode } from "react";
 
 export interface TextProps {
-  children: string;
+  children: string | ReactNode;
 }
 
 const Text: React.FC<TextProps> = ({ children }: TextProps) => {
