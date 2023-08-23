@@ -30,8 +30,7 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
 
   const handleClose = (ref: RefObject<HTMLDivElement>) => {
     setAnchorEl(null);
-    //TODO: move to useEffect???
-    setTimeout(() => handleScrollTo(ref), 100);
+    handleScrollTo(ref);
   };
 
   return (
