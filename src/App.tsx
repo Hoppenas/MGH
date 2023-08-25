@@ -38,7 +38,7 @@ function App() {
   const contactUsRef = useRef<HTMLDivElement>(null);
 
   const width = useWindowSize();
-  const showSmallScreenmenu = width !== undefined && width < 574;
+  const showSmallScreenmenu = width < 574;
 
   const { t } = useTranslation();
 
