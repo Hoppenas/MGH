@@ -1,4 +1,4 @@
-import React, { useState, RefObject, MouseEvent } from "react";
+import React, { useState, RefObject, MouseEvent, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -30,7 +30,9 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
 
   const handleClose = (ref: RefObject<HTMLDivElement>) => {
     setAnchorEl(null);
-    handleScrollTo(ref);
+    setTimeout(() => {
+      handleScrollTo(ref);
+    }, 100);
   };
 
   return (
@@ -43,10 +45,10 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        {!showSmallScreenmenu ? t("services") : <MenuIcon />}
+        {!showSmallScreenmenu ? t("services") : <MenuIcon fontSize="large" />}
       </Button>
       <Menu
-        // id="basic-menu"
+        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={() => handleClose(refArr[0].ref)}
@@ -55,7 +57,14 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
         }}
       >
         {refArr.map((item) => (
-          <MenuItem onClick={() => handleClose(item.ref)} key={item.subject}>
+          <MenuItem
+            onClick={() => handleClose(item.ref)}
+            key={item.subject}
+            style={{
+              fontSize: showSmallScreenmenu ? "32px" : "16px",
+              padding: "10px",
+            }}
+          >
             {item.subject}
           </MenuItem>
         ))}

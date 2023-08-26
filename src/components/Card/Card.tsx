@@ -17,7 +17,12 @@ const Card: React.FC<CardProps> = ({
   image,
 }) => {
   return (
-    <Grid textAlign={image ? "justify" : "center"} xs={12} padding="0 10px">
+    <Grid
+      item
+      textAlign={image ? "justify" : "center"}
+      xs={12}
+      padding="0 10px"
+    >
       <Typography variant="h2" width="100%" textAlign="center" margin="2rem 0">
         {subject}
       </Typography>
