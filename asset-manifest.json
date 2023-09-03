@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5bd5ba18.css",
+    "main.js": "/static/js/main.dea6f605.js",
+    "static/js/787.eedfde24.chunk.js": "/static/js/787.eedfde24.chunk.js",
+    "static/media/containers.jpg": "/static/media/containers.973a3ad61f4d670f1147.jpg",
+    "static/media/blackJet.jpg": "/static/media/blackJet.544375ba7e8d38aea4fc.jpg",
+    "static/media/aboutUs.jpg": "/static/media/aboutUs.ffee2e209f14c8bfd029.jpg",
+    "static/media/helicopter.jpg": "/static/media/helicopter.d770f93ab7879751b7e2.jpg",
+    "static/media/engine.jpg": "/static/media/engine.d8ee0501e4af1aa45c22.jpg",
+    "static/media/truck.jpg": "/static/media/truck.4cb18b0c1fb8ca403f31.jpg",
+    "static/media/fragile.jpg": "/static/media/fragile.027f37fb68e394e72dde.jpg",
+    "static/media/diplomaticPouch.jpg": "/static/media/diplomaticPouch.7f2d852bb9a44e59d4cb.jpg",
+    "static/media/getFetch.cjs": "/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "index.html": "/index.html",
+    "main.5bd5ba18.css.map": "/static/css/main.5bd5ba18.css.map",
+    "main.dea6f605.js.map": "/static/js/main.dea6f605.js.map",
+    "787.eedfde24.chunk.js.map": "/static/js/787.eedfde24.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5bd5ba18.css",
+    "static/js/main.dea6f605.js"
+  ]
+}
