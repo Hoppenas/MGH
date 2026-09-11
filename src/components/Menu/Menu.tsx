@@ -6,19 +6,16 @@ import { handleScrollTo } from "../../utils/utils";
 import { useTranslation } from "react-i18next";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Grid } from "@mui/material";
+import type { Section } from "../../types/Section";
 
 export interface DropDownMenuProps {
-  refArr: {
-    ref: RefObject<HTMLDivElement>;
-    subject: string;
-    description?: React.ReactNode;
-  }[];
-  showSmallScreenmenu: boolean;
+  sections: Pick<Section, "ref" | "subject">[];
+  isSmallScreen: boolean;
 }
 
 const DropDownMenu: React.FC<DropDownMenuProps> = ({
-  refArr,
-  showSmallScreenmenu,
+  sections,
+  isSmallScreen,
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -45,23 +42,23 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        {!showSmallScreenmenu ? t("services") : <MenuIcon fontSize="large" />}
+        {!isSmallScreen ? t("services") : <MenuIcon fontSize="large" />}
       </Button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={() => handleClose(refArr[0].ref)}
+        onClose={() => handleClose(sections[0].ref)}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
       >
-        {refArr.map((item) => (
+        {sections.map((item) => (
           <MenuItem
             onClick={() => handleClose(item.ref)}
             key={item.subject}
             style={{
-              fontSize: showSmallScreenmenu ? "32px" : "16px",
+              fontSize: isSmallScreen ? "32px" : "16px",
               padding: "10px",
             }}
           >
